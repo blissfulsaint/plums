@@ -1,4 +1,5 @@
 import Header from '@/components/Header'
+import TopicCard from '@/components/Card'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -16,9 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" >
       <body className={inter.className}>
         <Header />
+        <div className=" p-8">
+          <TopicCard  />
+        </div>
         {children}</body>
     </html>
   )
