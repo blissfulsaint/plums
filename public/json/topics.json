@@ -1,0 +1,106 @@
+[
+    {
+        "id": 1,
+        "title": "Introduction to Programming",
+        "content": "An overview of programming concepts.",
+        "tags": [1, 5, 6],
+        "links": [
+            "https://www.programiz.com/c-programming",
+            "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+            "https://docs.python.org/3/tutorial/"
+        ],
+        "parent_topic_id": null,
+        "completed": false
+    },
+    {
+        "id": 2,
+        "title": "Web Development Fundamentals",
+        "content": "Basic principles of web development.",
+        "tags": [2, 10, 11],
+        "links": [
+            "https://developer.mozilla.org/en-US/docs/Learn",
+            "https://www.w3schools.com/html/",
+            "https://www.w3schools.com/css/"
+        ],
+        "parent_topic_id": null,
+        "completed": false
+    },
+    {
+        "id": 3,
+        "title": "Data Science Basics",
+        "content": "Introduction to data science and its applications.",
+        "tags": [3, 15, 16],
+        "links": [
+            "https://www.kaggle.com/learn/data-science",
+            "https://www.coursera.org/specializations/jhu-data-science",
+            "https://towardsdatascience.com/data-science/home"
+        ],
+        "parent_topic_id": null,
+        "completed": false
+    },
+    {
+        "id": 4,
+        "title": "Responsive Web Design",
+        "content": "Principles and techniques for creating responsive web designs.",
+        "tags": [2, 10, 11, 14],
+        "links": [
+            "https://www.smashingmagazine.com/2011/01/guidelines-for-responsive-web-design/",
+            "https://www.w3schools.com/css/css_rwd_intro.asp",
+            "https://responsivedesign.is/"
+        ],
+        "parent_topic_id": 2,
+        "completed": false
+    },
+    {
+        "id": 5,
+        "title": "Introduction to UX/UI Design",
+        "content": "Basic concepts of user experience and user interface design.",
+        "tags": [4, 19],
+        "links": [
+            "https://www.interaction-design.org/literature/topics/ui-design",
+            "https://www.smashingmagazine.com/2010/05/what-is-user-experience-design-overview-tools-and-resources/",
+            "https://www.creativebloq.com/inspiration/10-essential-ux-design-trends-for-2022"
+        ],
+        "parent_topic_id": 2,
+        "completed": false
+    },
+    {
+        "id": 6,
+        "title": "Java Programming Basics",
+        "content": "Fundamental concepts and syntax of the Java programming language.",
+        "tags": [1, 7],
+        "links": [
+            "https://docs.oracle.com/en/java/javase/17/",
+            "https://www.w3schools.com/java/",
+            "https://www.learnjavaonline.org/"
+        ],
+        "parent_topic_id": 1,
+        "completed": false
+    },
+    {
+        "id": 7,
+        "title": "Data Visualization Techniques",
+        "content": "Methods and tools for effective data visualization.",
+        "tags": [3, 17],
+        "links": [
+            "https://www.tableau.com/learn/articles/data-visualization",
+            "https://matplotlib.org/stable/tutorials/introductory/sample_plots.html",
+            "https://www.d3-graph-gallery.com/"
+        ],
+        "parent_topic_id": 3,
+        "completed": false
+    },
+    {
+        "id": 8,
+        "title": "Project Management Fundamentals",
+        "content": "Essential principles of project management.",
+        "tags": [23, 25],
+        "links": [
+            "https://www.pmi.org/",
+            "https://www.wrike.com/project-management-guide/",
+            "https://www.cio.com/article/280007/project-management-what-is-a-project-manager.html"
+        ],
+        "parent_topic_id": null,
+        "completed": false
+    }
+]

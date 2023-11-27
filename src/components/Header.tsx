@@ -1,14 +1,18 @@
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
 export default function Header() {
-    return (
-        <header >
-            <nav>
-            {/* bg-indigo-400 */}
-                <ul className="flex flex-row items-center pt-8 pr-8 pl-8">
-                    <li><a className="pr-4" href="/">Home</a></li>
-                    <li><a className="pr-4" href="/add-new">Add New</a></li>
-                    <li><a className="pr-4" href="/edit">Edit</a></li>
-                </ul>
-            </nav>
-        </header>
-    )
+  return (
+    <header className="bg-black p-4">
+      <div className='w-10'>
+        {/* Logo as a link to the home page */}
+        <Link href="/" className='w-fit-content'>
+          <div>
+            <Image src="/images/plumslogo.png" alt="PLuMS Logo" width={40} height={40} />
+          </div>
+        </Link>
+      </div>
+    </header>
+  );
 }
