@@ -16,8 +16,8 @@ const Topic: React.FC<TopicProps> = ({ topic }) => {
   const { id, title, content, tags, links, parent_topic_id, completed } = topic;
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-      <h2 className="text-xl font-semibold mb-2">{title}</h2>
+    <div className="bg-white p-6 rounded-lg shadow-md mb-6 w-96">
+      <h2 className="text-xl font-semibold mb-2 text-gray-600">{title}</h2>
       <p className="text-gray-600 mb-4">{content}</p>
 
       <div className="flex items-center mb-4">

@@ -1,4 +1,4 @@
-// @ts-nocheck
+"use client"; // This is a client component 👈🏽
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Nav from '../components/Nav';
@@ -55,8 +55,8 @@ export default function Home() {
       </div>
 
       <main className="flex flex-col items-center justify-center min-h-screen p-8">
-        <div className="container mx-auto mt-8">
-          <h2 className="text-2xl font-bold mb-4">Featured Topics</h2>
+        <h2 className="text-2xl font-bold mb-4">Featured Topics</h2>
+        <div className="container flex flex-wrap justify-center gap-x-8 mx-auto mt-8">
           {/* Render featured topics */}
           {featuredTopics.map((topic) => (
             <Topic key={topic.id} topic={topic} />
