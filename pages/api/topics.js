@@ -6,8 +6,12 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
-  // Connection URI
-  const uri = 'mongodb+srv://ach18003:pass@cluster0.cecdyyl.mongodb.net/?retryWrites=true&w=majority';
+  // Connection URI for tags
+  const uri = process.env.MONGODB_URI;
+
+  if (!uri) {
+    return res.status(500).json({ message: 'MongoDB connection string is missing.' });
+  }
 
   // Create a new MongoClient
   const client = new MongoClient(uri, {
