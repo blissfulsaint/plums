@@ -1,4 +1,5 @@
-"use client"; // This is a client component 👈🏽
+// Import the necessary dependencies
+"use client";
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Nav from '../components/Nav';
@@ -24,7 +25,8 @@ export default function Home() {
     // Function to fetch topics data and set random featured topics
     const fetchFeaturedTopics = async () => {
       try {
-        const response = await fetch('/json/topics.json'); // Assuming the JSON file is in the /public/json directory
+        // Fetch topics data from your MongoDB route
+        const response = await fetch('/api/topics'); // Adjust the API route accordingly
         const topicsData = await response.json();
 
         // Shuffle the array of topics

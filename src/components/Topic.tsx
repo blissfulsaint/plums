@@ -21,6 +21,7 @@ interface Tag {
 const Topic: React.FC<TopicProps> = ({ topic }) => {
   const { id, title, content, tags: tagIds, links, parent_topic_id, completed } = topic;
   const [tagNames, setTagNames] = useState<string[]>([]);
+  const [completedState, setCompleted] = useState<boolean>(completed);
 
   // Function to get tag names based on tag IDs
   useEffect(() => {
@@ -44,6 +45,27 @@ const Topic: React.FC<TopicProps> = ({ topic }) => {
 
     getTagNames();
   }, [tagIds]);
+
+  const handleCheckboxChange = async () => {
+    try {
+      const response = await fetch(`/api/topics/${topic.id}/complete`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ completed: !completedState }),
+      });
+
+      if (response.ok) {
+        // Update the local state after a successful request
+        setCompleted(!completedState);
+      } else {
+        console.error('Error updating topic:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error updating topic:', error);
+    }
+  };
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md mb-6 w-96">
@@ -83,7 +105,12 @@ const Topic: React.FC<TopicProps> = ({ topic }) => {
 
       <div>
         <span className="text-gray-500 mr-2">Completed:</span>
-        <input type="checkbox" checked={completed} readOnly className="mr-2" />
+        <input
+          type="checkbox"
+          checked={completedState}
+          onChange={handleCheckboxChange}
+          className="mr-2"
+        />
       </div>
     </div>
   );

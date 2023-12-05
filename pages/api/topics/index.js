@@ -23,12 +23,8 @@ export default async function handler(req, res) {
     // Connect to the MongoDB cluster
     await client.connect();
 
-    // Access the database
-    const database = client.db('Plums');
-    const collection = database.collection('topics');
-
-    // Fetch data from MongoDB
-    const topics = await collection.find({}).toArray();
+    // Access the database and the 'tags' collection directly
+    const topics = await client.db().collection('topics').find({}).toArray();
 
     // Send the data as a response
     res.status(200).json(topics);
