@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 interface TopicProps {
   topic: {
@@ -12,8 +13,37 @@ interface TopicProps {
   };
 }
 
+interface Tag {
+  id: number;
+  name: string;
+}
+
 const Topic: React.FC<TopicProps> = ({ topic }) => {
-  const { id, title, content, tags, links, parent_topic_id, completed } = topic;
+  const { id, title, content, tags: tagIds, links, parent_topic_id, completed } = topic;
+  const [tagNames, setTagNames] = useState<string[]>([]);
+
+  // Function to get tag names based on tag IDs
+  useEffect(() => {
+    const getTagNames = async () => {
+      try {
+        // Fetch tag data from your MongoDB route
+        const response = await fetch('/api/tags');
+        const tags: Tag[] = await response.json();
+
+        // Map tag IDs to tag names
+        const topicTagNames = tagIds.map((tagId) => {
+          const tag = tags.find((tag) => tag.id === tagId);
+          return tag ? tag.name : `Tag ${tagId}`;
+        });
+
+        setTagNames(topicTagNames);
+      } catch (error) {
+        console.error('Error fetching tags:', error);
+      }
+    };
+
+    getTagNames();
+  }, [tagIds]);
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md mb-6 w-96">
@@ -22,9 +52,9 @@ const Topic: React.FC<TopicProps> = ({ topic }) => {
 
       <div className="flex items-center mb-4">
         <span className="text-gray-500 mr-2">Tags:</span>
-        {tags.map((tag) => (
-          <span key={tag} className="bg-gray-200 px-2 py-1 rounded-full text-xs mr-2">
-            Tag {tag}
+        {tagNames.map((tagName, index) => (
+          <span key={index} className="bg-gray-200 px-2 py-1 rounded-full text-xs mr-2">
+            {tagName}
           </span>
         ))}
       </div>
@@ -45,11 +75,9 @@ const Topic: React.FC<TopicProps> = ({ topic }) => {
       {parent_topic_id && (
         <div className="mb-4">
           <span className="text-gray-500 mr-2">Parent Topic:</span>
-          <span className="text-blue-500 underline">Parent Topic</span>
-          {/* You can link to the parent topic page if needed */}
-          {/* <Link href={`/topics/${parent_topic_id}`}>
-            <a className="text-blue-500 underline">Parent Topic</a>
-          </Link> */}
+          <Link href={`/topics/${parent_topic_id}`}>
+            <div className="text-blue-500 underline">Parent Topic</div>
+          </Link>
         </div>
       )}
 
