@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 interface TopicProps {
   topic: {
-    id: number;
+    _id: string;
     title: string;
     content: string;
     tags: number[];
@@ -14,12 +14,12 @@ interface TopicProps {
 }
 
 interface Tag {
-  id: number;
+  _id: number;
   name: string;
 }
 
 const Topic: React.FC<TopicProps> = ({ topic }) => {
-  const { id, title, content, tags: tagIds, links, parent_topic_id, completed } = topic;
+  const { _id, title, content, tags: tagIds, links, parent_topic_id, completed } = topic;
   const [tagNames, setTagNames] = useState<string[]>([]);
   const [completedState, setCompleted] = useState<boolean>(completed);
 
@@ -33,7 +33,7 @@ const Topic: React.FC<TopicProps> = ({ topic }) => {
 
         // Map tag IDs to tag names
         const topicTagNames = tagIds.map((tagId) => {
-          const tag = tags.find((tag) => tag.id === tagId);
+          const tag = tags.find((tag) => tag._id === tagId);
           return tag ? tag.name : `Tag ${tagId}`;
         });
 
@@ -48,7 +48,7 @@ const Topic: React.FC<TopicProps> = ({ topic }) => {
 
   const handleCheckboxChange = async () => {
     try {
-      const response = await fetch(`/api/topics/${topic.id}/complete`, {
+      const response = await fetch(`/api/topics/${topic._id}/complete`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

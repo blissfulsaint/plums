@@ -1,0 +1,229 @@
+[{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b46"
+  },
+  "id": 1,
+  "name": "Programming"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b47"
+  },
+  "id": 2,
+  "name": "Web Development"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b48"
+  },
+  "id": 3,
+  "name": "Data Science"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b49"
+  },
+  "id": 4,
+  "name": "Design"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b4a"
+  },
+  "id": 5,
+  "name": "JavaScript"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b4b"
+  },
+  "id": 6,
+  "name": "Python"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b4c"
+  },
+  "id": 7,
+  "name": "Java"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b4d"
+  },
+  "id": 8,
+  "name": "C++"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b4e"
+  },
+  "id": 9,
+  "name": "Ruby"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b4f"
+  },
+  "id": 10,
+  "name": "HTML"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b50"
+  },
+  "id": 11,
+  "name": "CSS"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b51"
+  },
+  "id": 12,
+  "name": "Frontend Development"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b52"
+  },
+  "id": 13,
+  "name": "Backend Development"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b53"
+  },
+  "id": 14,
+  "name": "Full-Stack Development"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b54"
+  },
+  "id": 15,
+  "name": "Data Analysis"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b55"
+  },
+  "id": 16,
+  "name": "Machine Learning"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b56"
+  },
+  "id": 17,
+  "name": "Data Visualization"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b57"
+  },
+  "id": 18,
+  "name": "Big Data"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b58"
+  },
+  "id": 19,
+  "name": "UX/UI Design"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b59"
+  },
+  "id": 20,
+  "name": "Graphic Design"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b5a"
+  },
+  "id": 21,
+  "name": "Web Design"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b5b"
+  },
+  "id": 22,
+  "name": "Product Design"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b5c"
+  },
+  "id": 23,
+  "name": "Project Management"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b5d"
+  },
+  "id": 24,
+  "name": "Entrepreneurship"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b5e"
+  },
+  "id": 25,
+  "name": "Leadership"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b5f"
+  },
+  "id": 26,
+  "name": "Marketing"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b60"
+  },
+  "id": 27,
+  "name": "Physics"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b61"
+  },
+  "id": 28,
+  "name": "Chemistry"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b62"
+  },
+  "id": 29,
+  "name": "Biology"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b63"
+  },
+  "id": 30,
+  "name": "Information Technology"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b64"
+  },
+  "id": 31,
+  "name": "Communication"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b65"
+  },
+  "id": 32,
+  "name": "Time Management"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b66"
+  },
+  "id": 33,
+  "name": "Problem Solving"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b67"
+  },
+  "id": 34,
+  "name": "Teamwork"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b68"
+  },
+  "id": 35,
+  "name": "Healthcare"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b69"
+  },
+  "id": 36,
+  "name": "Finance"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b6a"
+  },
+  "id": 37,
+  "name": "Education"
+},{
+  "_id": {
+    "$oid": "656eb777ddf7adcb666a2b6b"
+  },
+  "id": 38,
+  "name": "Energy"
+}]
