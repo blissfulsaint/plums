@@ -15,8 +15,6 @@ export default async function handler(req, res) {
 
   // Create a new MongoClient
   const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
   });
 
   try {

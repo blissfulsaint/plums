@@ -9,7 +9,7 @@ import Topic from '../components/Topic';
 
 // Add a type for the topic
 type TopicType = {
-  id: number;
+  _id: string;
   title: string;
   content: string;
   tags: number[];
@@ -61,7 +61,7 @@ export default function Home() {
         <div className="container flex flex-wrap justify-center gap-x-8 mx-auto mt-8">
           {/* Render featured topics */}
           {featuredTopics.map((topic) => (
-            <Topic key={topic.id} topic={topic} />
+            <Topic key={topic._id} topic={topic} />
           ))}
         </div>
       </main>
