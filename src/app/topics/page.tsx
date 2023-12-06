@@ -1,5 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Header from '../../components/Header';
+import Nav from '../../components/Nav';
+import Footer from '../../components/Footer';
 
 interface Tag {
   id: number;
@@ -77,64 +80,99 @@ const CreateTopicForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Topic Name:
-        <input
-          type="text"
-          value={topicData.title}
-          onChange={(e) => handleChange('title', e.target.value)}
-          required
-        />
-      </label>
+    <div>
+      <Header />
+      <Nav />
+      <div className="max-w-md mx-auto mt-8">
+      <h2 className="text-2xl font-bold mb-4 mt-16 text-purple-800 mx-auto">Add New Topic</h2>
 
-      <label>
-        Content:
-        <textarea
-          value={topicData.content}
-          onChange={(e) => handleChange('content', e.target.value)}
-          required
-        />
-      </label>
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 bg-purple-100 p-8 rounded-md shadow-md">
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="topicName">
+            Topic Name:
+          </label>
+          <input
+            id="topicName"
+            type="text"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-purple"
+            value={topicData.title}
+            onChange={(e) => handleChange('title', e.target.value)}
+            required
+          />
+        </div>
 
-      <label>
-        URL Links:
-        {topicData.links.map((link, index) => (
-          <div key={index}>
-            <input
-              type="text"
-              value={link}
-              onChange={(e) => handleChange('links', e.target.value, index)}
-            />
-          </div>
-        ))}
-        <button type="button" onClick={handleAddLink}>
-          Add Another Link
-        </button>
-      </label>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="content">
+            Content:
+          </label>
+          <textarea
+            id="content"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-purple"
+            value={topicData.content}
+            onChange={(e) => handleChange('content', e.target.value)}
+            required
+          />
+        </div>
 
-      <label>
-        Tags:
-        <select
-          multiple
-          value={topicData.tags.map(String)} // Convert numbers to strings
-          onChange={(e) =>
-            handleChange(
-              'tags',
-              Array.from(e.target.selectedOptions, (option) => String(option.value))
-            )
-          }
-        >
-          {allTags.map((tag) => (
-            <option key={tag.id} value={String(tag.id)}> {/* Convert id to string */}
-              {tag.name}
-            </option>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="urlLinks">
+            URL Links:
+          </label>
+          {topicData.links.map((link, index) => (
+            <div key={index} className="mb-2">
+              <input
+                id={`urlLink${index}`}
+                type="text"
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-purple"
+                value={link}
+                onChange={(e) => handleChange('links', e.target.value, index)}
+              />
+            </div>
           ))}
-        </select>
-      </label>
+          <button
+            type="button"
+            onClick={handleAddLink}
+            className="text-purple-500 hover:text-purple-700 focus:outline-none focus:underline"
+          >
+            Add Another Link
+          </button>
+        </div>
 
-      <button type="submit">Submit</button>
-    </form>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="tags">
+            Tags:
+          </label>
+          <select
+            id="tags"
+            multiple
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-purple"
+            value={topicData.tags.map(String)}
+            onChange={(e) =>
+              handleChange(
+                'tags',
+                Array.from(e.target.selectedOptions, (option) => String(option.value))
+              )
+            }
+          >
+            {allTags.map((tag) => (
+              <option key={tag.id} value={String(tag.id)}>
+                {tag.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-purple"
+        >
+          Submit
+        </button>
+      </form>
+      </div>
+
+    <Footer />
+    </div>
   );
 };
 
