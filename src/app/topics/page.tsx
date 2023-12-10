@@ -1,179 +1,65 @@
-"use client";
-import React, { useState, useEffect } from 'react';
-import Header from '../../components/Header';
-import Nav from '../../components/Nav';
-import Footer from '../../components/Footer';
+// Import React and useState
+'use client'
 
-interface Tag {
-  id: number;
-  name: string;
-}
+import React, { useState } from 'react';
 
-interface TopicData {
-  title: string;
-  content: string;
-  links: string[];
-  tags: number[];
-}
+// CreateTopicForm component
+const CreateTopicForm = () => {
+  // State for the title input
+  const [title, setTitle] = useState('');
 
-const CreateTopicForm: React.FC = () => {
-  const [topicData, setTopicData] = useState<TopicData>({
-    title: '',
-    content: '',
-    links: [''],
-    tags: [] as number[], // Initialize as an empty array of numbers
-  });
-
-  const [allTags, setAllTags] = useState<Tag[]>([]);
-
-  useEffect(() => {
-    // Fetch all tags from the API
-    const fetchTags = async () => {
-      try {
-        const response = await fetch('/api/tags');
-        const tagsData: Tag[] = await response.json(); // Explicitly type tagsData
-        setAllTags(tagsData);
-      } catch (error) {
-        console.error('Error fetching tags:', error);
-      }
-    };
-
-    fetchTags();
-  }, []);
-
-  const handleChange = (field: keyof TopicData, value: string | string[], index: number | null = null) => {
-    setTopicData((prevData) => {
-      if (index !== null) {
-        const updatedLinks = [...prevData.links];
-        updatedLinks[index] = value as string;
-        return { ...prevData, links: updatedLinks };
-      }
-
-      // Handle string array case
-      if (Array.isArray(value)) {
-        return { ...prevData, [field]: value };
-      }
-
-      return { ...prevData, [field]: value as string };
-    });
-  };
-
-  const handleAddLink = () => {
-    setTopicData((prevData) => ({
-      ...prevData,
-      links: [...prevData.links, ''],
-    }));
-  };
-
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // TODO: Add logic to submit data to MongoDB using fetch or axios
+    try {
+      // Send a POST request to the server
+      const response = await fetch('/api/topics/topics', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title }),
+      });
 
-    // Reset form after submission
-    setTopicData({
-      title: '',
-      content: '',
-      links: [''],
-      tags: [],
-    });
+      // Check if the response is okay
+      if (!response.ok) {
+        // Log the error and throw an exception
+        const responseData = await response.json();
+        console.log('Response Data:', responseData);
+        throw new Error(`Failed to add topic: ${response.statusText}`);
+      }
+
+      // Reset the title after successful submission
+      setTitle('');
+    } catch (error) {
+      // Log and handle errors
+      console.error('Error submitting topic:', error);
+    }
   };
 
   return (
-    <div>
-      <Header />
-      <Nav />
-      <div className="max-w-md mx-auto mt-8">
-      <h2 className="text-2xl font-bold mb-4 mt-16 text-purple-800 mx-auto">Add New Topic</h2>
-
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 bg-purple-100 p-8 rounded-md shadow-md">
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="topicName">
-            Topic Name:
-          </label>
-          <input
-            id="topicName"
-            type="text"
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-purple"
-            value={topicData.title}
-            onChange={(e) => handleChange('title', e.target.value)}
-            required
-          />
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="content">
-            Content:
-          </label>
-          <textarea
-            id="content"
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-purple"
-            value={topicData.content}
-            onChange={(e) => handleChange('content', e.target.value)}
-            required
-          />
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="urlLinks">
-            URL Links:
-          </label>
-          {topicData.links.map((link, index) => (
-            <div key={index} className="mb-2">
-              <input
-                id={`urlLink${index}`}
-                type="text"
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-purple"
-                value={link}
-                onChange={(e) => handleChange('links', e.target.value, index)}
-              />
-            </div>
-          ))}
-          <button
-            type="button"
-            onClick={handleAddLink}
-            className="text-purple-500 hover:text-purple-700 focus:outline-none focus:underline"
-          >
-            Add Another Link
-          </button>
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="tags">
-            Tags:
-          </label>
-          <select
-            id="tags"
-            multiple
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-purple"
-            value={topicData.tags.map(String)}
-            onChange={(e) =>
-              handleChange(
-                'tags',
-                Array.from(e.target.selectedOptions, (option) => String(option.value))
-              )
-            }
-          >
-            {allTags.map((tag) => (
-              <option key={tag.id} value={String(tag.id)}>
-                {tag.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <button
-          type="submit"
-          className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-purple"
-        >
-          Submit
-        </button>
-      </form>
-      </div>
-
-    <Footer />
-    </div>
+    // Stylish form using Tailwind CSS classes
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 p-8 bg-white rounded-md shadow-md">
+      <label className="block text-gray-700 text-sm font-bold mb-2">
+        Title:
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="w-full px-3 py-2 border rounded-md mt-1 focus:outline-none focus:shadow-outline-purple"
+          required
+        />
+      </label>
+      <button
+        type="submit"
+        className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-purple"
+      >
+        Submit
+      </button>
+    </form>
   );
 };
 
-export default CreateTopicForm;   
+// Export the component
+export default CreateTopicForm;
