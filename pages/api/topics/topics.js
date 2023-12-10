@@ -1,16 +1,20 @@
 // Import the MongoClient
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
+import dotenv from 'dotenv';
+
+// Configure dotenv to read values from .env file
+dotenv.config();
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
-  // Extract topic data from the request body
-  const { title, content, links, tags } = req.body;
+  // Extract data from the request body
+  const { title } = req.body;
 
   // Validate the required fields
-  if (!title || !content || !links || !tags) {
+  if (!title) {
     return res.status(400).json({ message: 'Missing required fields' });
   }
 
@@ -21,11 +25,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ message: 'MongoDB connection string is missing.' });
   }
 
-  // Create a new MongoClient
-  const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  const client = new MongoClient(uri);
 
   try {
     // Connect to the MongoDB cluster
@@ -35,24 +35,35 @@ export default async function handler(req, res) {
     const database = client.db();
     const topicsCollection = database.collection('topics');
 
-    // Create a new topic document
+    // Create a new document
     const newTopic = {
       title,
-      content,
-      links,
-      tags,
     };
 
-    // Insert the new topic into the 'topics' collection
+    // Insert the new document into the 'topics' collection
     const result = await topicsCollection.insertOne(newTopic);
 
-    // Return the inserted topic data
-    res.status(201).json(result.ops[0]);
+    console.log('Result:', result);
+
+    // Check if result and result.ops are defined before accessing the first element
+    if (result && result.ops && result.ops.length > 0) {
+      // Return the inserted data
+      res.status(201).json(result.ops[0]);
+    } else {
+      // If result is not as expected, handle the error
+      const errorMessage = 'Internal Server Error';
+      throw new Error(errorMessage);
+    }
   } catch (error) {
     console.error('Error adding topic:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    const errorMessage = error.message || 'Internal Server Error';
+    return res.status(500).json({ message: errorMessage, error: error.stack });
   } finally {
-    // Close the connection
-    await client.close();
+    try {
+      // Close the connection
+      await client.close();
+    } catch (closeError) {
+      console.error('Error closing the connection:', closeError);
+    }
   }
 }
