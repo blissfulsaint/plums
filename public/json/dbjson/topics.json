@@ -1,158 +1,152 @@
-[
-  {
-    "_id": {
-      "$oid": "656d31d344e8b5ff6ab81dfd"
-    },
-    "id": 7,
-    "title": "Data Visualization Techniques",
-    "content": "Methods and tools for effective data visualization.",
-    "tags": [
-      {"$oid": "656eb777ddf7adcb666a2b48"},
-      {"$oid": "656eb777ddf7adcb666a2b56"}
-    ],
-    "links": [
-      "https://www.tableau.com/learn/articles/data-visualization",
-      "https://matplotlib.org/stable/tutorials/introductory/sample_plots.html",
-      "https://www.d3-graph-gallery.com/"
-    ],
-    "parent_topic_id": {"$oid": "656d31d344e8b5ff6ab81df9"},
-    "completed": false
+[{
+  "_id": {
+    "$oid": "656d31d344e8b5ff6ab81dfd"
   },
-  {
-    "_id": {
-      "$oid": "656d31d344e8b5ff6ab81dfa"
+  "id": 7,
+  "title": "Data Visualization Techniques",
+  "content": "Methods and tools for effective data visualization.",
+  "tags": [
+    {
+      "$oid": "656eb777ddf7adcb666a2b48"
     },
-    "id": 4,
-    "title": "Responsive Web Design",
-    "content": "Principles and techniques for creating responsive web designs.",
-    "tags": [
-      {"$oid": "656eb777ddf7adcb666a2b47"},
-      {"$oid": "656eb777ddf7adcb666a2b4a"},
-      {"$oid": "656eb777ddf7adcb666a2b4b"},
-      {"$oid": "656eb777ddf7adcb666a2b48"}
-    ],
-    "links": [
-      "https://www.smashingmagazine.com/2011/01/guidelines-for-responsive-web-design/",
-      "https://www.w3schools.com/css/css_rwd_intro.asp",
-      "https://responsivedesign.is/"
-    ],
-    "parent_topic_id": {"$oid": "656d31d344e8b5ff6ab81df8"},
-    "completed": false
+    {
+      "$oid": "656eb777ddf7adcb666a2b56"
+    }
+  ],
+  "links": [
+    "https://www.tableau.com/learn/articles/data-visualization",
+    "https://matplotlib.org/stable/tutorials/introductory/sample_plots.html",
+    "https://www.d3-graph-gallery.com/"
+  ],
+  "completed": true,
+  "parent_topic_id": null,
+  "is_parent_topic": false
+},{
+  "_id": {
+    "$oid": "656d31d344e8b5ff6ab81dfa"
   },
-  {
-    "_id": {
-      "$oid": "656d31d344e8b5ff6ab81dfb"
+  "id": 4,
+  "title": "Responsive Web Design",
+  "content": "Principles and techniques for creating responsive web designs.",
+  "tags": [
+    {
+      "$oid": "656eb777ddf7adcb666a2b47"
     },
-    "id": 5,
-    "title": "Introduction to UX/UI Design",
-    "content": "Basic concepts of user experience and user interface design.",
-    "tags": [
-      {"$oid": "656eb777ddf7adcb666a2b49"},
-      {"$oid": "656eb777ddf7adcb666a2b58"}
-    ],
-    "links": [
-      "https://www.interaction-design.org/literature/topics/ui-design",
-      "https://www.smashingmagazine.com/2010/05/what-is-user-experience-design-overview-tools-and-resources/",
-      "https://www.creativebloq.com/inspiration/10-essential-ux-design-trends-for-2022"
-    ],
-    "parent_topic_id": {"$oid": "656d31d344e8b5ff6ab81df7"},
-    "completed": true
+    {
+      "$oid": "656eb777ddf7adcb666a2b4a"
+    },
+    {
+      "$oid": "656eb777ddf7adcb666a2b4b"
+    },
+    {
+      "$oid": "656eb777ddf7adcb666a2b48"
+    }
+  ],
+  "links": [
+    "https://www.smashingmagazine.com/2011/01/guidelines-for-responsive-web-design/",
+    "https://www.w3schools.com/css/css_rwd_intro.asp",
+    "https://responsivedesign.is/"
+  ],
+  "parent_topic_id": null,
+  "completed": false,
+  "is_parent_topic": true
+},{
+  "_id": {
+    "$oid": "656d31d344e8b5ff6ab81dfb"
   },
-  {
-    "_id": {
-      "$oid": "656d31d344e8b5ff6ab81df7"
+  "id": 5,
+  "title": "Introduction to UX/UI Design",
+  "content": "Basic concepts of user experience and user interface design.",
+  "tags": [
+    {
+      "$oid": "656eb777ddf7adcb666a2b49"
     },
-    "id": 1,
-    "title": "Introduction to Programming",
-    "content": "An overview of programming concepts.",
-    "tags": [
-      {"$oid": "656eb777ddf7adcb666a2b47"},
-      {"$oid": "656eb777ddf7adcb666a2b4b"},
-      {"$oid": "656eb777ddf7adcb666a2b4c"}
-    ],
-    "links": [
-      "https://www.programiz.com/c-programming",
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
-      "https://docs.python.org/3/tutorial/"
-    ],
-    "parent_topic_id": null,
-    "completed": false
+    {
+      "$oid": "656eb777ddf7adcb666a2b58"
+    }
+  ],
+  "links": [
+    "https://www.interaction-design.org/literature/topics/ui-design",
+    "https://www.smashingmagazine.com/2010/05/what-is-user-experience-design-overview-tools-and-resources/",
+    "https://www.creativebloq.com/inspiration/10-essential-ux-design-trends-for-2022"
+  ],
+  "parent_topic_id": null,
+  "completed": false,
+  "is_parent_topic": false
+},{
+  "_id": {
+    "$oid": "656d31d344e8b5ff6ab81df7"
   },
-  {
-    "_id": {
-      "$oid": "656d31d344e8b5ff6ab81dfb"
+  "id": 1,
+  "title": "Introduction to Programming",
+  "content": "An overview of programming concepts.",
+  "tags": [
+    {
+      "$oid": "656eb777ddf7adcb666a2b47"
     },
-    "id": 5,
-    "title": "Introduction to UX/UI Design",
-    "content": "Basic concepts of user experience and user interface design.",
-    "tags": [
-      {"$oid": "656eb777ddf7adcb666a2b49"},
-      {"$oid": "656eb777ddf7adcb666a2b58"}
-    ],
-    "links": [
-      "https://www.interaction-design.org/literature/topics/ui-design",
-      "https://www.smashingmagazine.com/2010/05/what-is-user-experience-design-overview-tools-and-resources/",
-      "https://www.creativebloq.com/inspiration/10-essential-ux-design-trends-for-2022"
-    ],
-    "parent_topic_id": {"$oid": "656d31d344e8b5ff6ab81df7"},
-    "completed": true
+    {
+      "$oid": "656eb777ddf7adcb666a2b4b"
+    },
+    {
+      "$oid": "656eb777ddf7adcb666a2b4c"
+    }
+  ],
+  "links": [
+    "https://www.programiz.com/c-programming",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+    "https://docs.python.org/3/tutorial/"
+  ],
+  "parent_topic_id": {
+    "$oid": "656d31d344e8b5ff6ab81dfa"
   },
-  {
-    "_id": {
-      "$oid": "656d31d344e8b5ff6ab81df7"
-    },
-    "id": 1,
-    "title": "Introduction to Programming",
-    "content": "An overview of programming concepts.",
-    "tags": [
-      {"$oid": "656eb777ddf7adcb666a2b47"},
-      {"$oid": "656eb777ddf7adcb666a2b4b"},
-      {"$oid": "656eb777ddf7adcb666a2b4c"}
-    ],
-    "links": [
-      "https://www.programiz.com/c-programming",
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
-      "https://docs.python.org/3/tutorial/"
-    ],
-    "parent_topic_id": null,
-    "completed": false
+  "completed": false,
+  "is_parent_topic": false
+},{
+  "_id": {
+    "$oid": "656d31d344e8b5ff6ab81dfc"
   },
-  {
-    "_id": {
-      "$oid": "656d31d344e8b5ff6ab81dfc"
+  "id": 6,
+  "title": "Java Programming Basics",
+  "content": "Fundamental concepts and syntax of the Java programming language.",
+  "tags": [
+    {
+      "$oid": "656eb777ddf7adcb666a2b46"
     },
-    "id": 6,
-    "title": "Java Programming Basics",
-    "content": "Fundamental concepts and syntax of the Java programming language.",
-    "tags": [
-      {"$oid": "656eb777ddf7adcb666a2b46"},
-      {"$oid": "656eb777ddf7adcb666a2b4c"}
-    ],
-    "links": [
-      "https://docs.oracle.com/en/java/javase/17/",
-      "https://www.w3schools.com/java/",
-      "https://www.learnjavaonline.org/"
-    ],
-    "parent_topic_id": {"$oid": "656d31d344e8b5ff6ab81dfe"},
-    "completed": false
+    {
+      "$oid": "656eb777ddf7adcb666a2b4c"
+    }
+  ],
+  "links": [
+    "https://docs.oracle.com/en/java/javase/17/",
+    "https://www.w3schools.com/java/",
+    "https://www.learnjavaonline.org/"
+  ],
+  "parent_topic_id": {
+    "$oid": "656d31d344e8b5ff6ab81dfe"
   },
-  {
-    "_id": {
-      "$oid": "656d31d344e8b5ff6ab81dfe"
+  "completed": false,
+  "is_parent_topic": false
+},{
+  "_id": {
+    "$oid": "656d31d344e8b5ff6ab81dfe"
+  },
+  "id": 8,
+  "title": "Project Management Fundamentals",
+  "content": "Essential principles of project management.",
+  "tags": [
+    {
+      "$oid": "656eb777ddf7adcb666a2b5c"
     },
-    "id": 8,
-    "title": "Project Management Fundamentals",
-    "content": "Essential principles of project management.",
-    "tags": [
-      {"$oid": "656eb777ddf7adcb666a2b5c"},
-      {"$oid": "656eb777ddf7adcb666a2b5e"}
-    ],
-    "links": [
-      "https://www.pmi.org/",
-      "https://www.wrike.com/project-management-guide/",
-      "https://www.cio.com/article/280007/project-management-what-is-a-project-manager.html"
-    ],
-    "parent_topic_id": null,
-    "completed": false
-  }
-]
+    {
+      "$oid": "656eb777ddf7adcb666a2b5e"
+    }
+  ],
+  "links": [
+    "https://www.pmi.org/",
+    "https://www.wrike.com/project-management-guide/",
+    "https://www.cio.com/article/280007/project-management-what-is-a-project-manager.html"
+  ],
+  "parent_topic_id": null,
+  "completed": false,
+  "is_parent_topic": true
+}]
