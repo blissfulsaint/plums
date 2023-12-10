@@ -1,0 +1,12 @@
+/* ChildTopic.module.css */
+
+.expanded {
+    max-height: 1000px; /* Adjust to a suitable value */
+    transition: max-height 0.3s ease;
+  }
+  
+  .collapsed {
+    max-height: 1em;
+    transition: max-height 0.3s ease;
+  }
+  

@@ -16,6 +16,7 @@ type TopicType = {
   links: string[];
   parent_topic_id: number | null;
   completed: boolean;
+  is_parent_topic: boolean;
 };
 
 export default function Home() {
@@ -29,8 +30,11 @@ export default function Home() {
         const response = await fetch('/api/topics'); // Adjust the API route accordingly
         const topicsData = await response.json();
 
+        // Filter topics to include only those with parent_topic_id set to null
+        const filteredTopics = topicsData.filter((topic: TopicType) => topic.parent_topic_id === null);
+
         // Shuffle the array of topics
-        const shuffledTopics = topicsData.sort(() => Math.random() - 0.5);
+        const shuffledTopics = filteredTopics.sort(() => Math.random() - 0.5);
 
         // Select the first 4 topics as featured topics
         const selectedFeaturedTopics = shuffledTopics.slice(0, 4);
@@ -48,7 +52,7 @@ export default function Home() {
     <div>
       <Header />
       <Nav />
-      <div className="container mx-auto mt-8">
+      <div className="container mx-auto mt-8 px-4 sm:px-8">
         <h1 className="text-4xl font-bold mb-4">Welcome to PLuMS</h1>
         <p className="text-lg text-gray-600">Your personalized learning management system.</p>
         <Link href="/topics">
@@ -56,12 +60,14 @@ export default function Home() {
         </Link>
       </div>
 
-      <main className="flex flex-col items-center justify-center min-h-screen p-8">
+      <main className="container mx-auto flex flex-wrap justify-center gap-x-4 p-4 sm:p-8">
         <h2 className="text-2xl font-bold mb-4">Featured Topics</h2>
-        <div className="container flex flex-wrap justify-center gap-x-8 mx-auto mt-8">
+        <div className="container mx-auto flex flex-wrap justify-center gap-x-4 p-4 sm:p-8">
           {/* Render featured topics */}
-          {featuredTopics.map((topic) => (
-            <Topic key={topic._id} topic={topic} />
+          {featuredTopics.map((topic: TopicType) => (
+            <div key={topic._id} className="mb-4 sm:mb-8">
+              <Topic topic={topic} />
+            </div>
           ))}
         </div>
       </main>
